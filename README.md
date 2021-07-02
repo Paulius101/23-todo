@@ -21,4 +21,4 @@ Design: improvized 🎅
 
 ## Authors
 
-[Rimantas](https://github.com/Paulius101)
+[Paulius](https://github.com/Paulius101)
