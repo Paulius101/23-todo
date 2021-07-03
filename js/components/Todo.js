@@ -3,6 +3,10 @@ class Todo {
         this.IDselector = IDselector;
 
         this.DOM = null;
+        this.listDOM = null;
+        this.newMessageDOM = null;
+        this.newBorderColorDOM = null;
+        this.buttonSaveDOM = null;
 
         this.init();
     }
@@ -20,6 +24,7 @@ class Todo {
         this.DOM.classList.add('todo');
 
         this.render();
+        this.addEvents();
     }
 
     isValidSelector() {
@@ -37,7 +42,7 @@ class Todo {
                     <input id="new_text" type="text">
                     <label for="new_border_color">Border color</label>
                     <input id="new_border_color" type="color">
-                    <button type="submit">Save</button>
+                    <button id="save_button" type="submit">Save</button>
                     <button type="reset">Reset</button>
                 </form>`;
     }
@@ -57,14 +62,20 @@ class Todo {
         return `<div class="list"></div>`;
     }
 
-    generateTask() {
-        return `<div class="task">
-                    <div class="text">Pazadinti barsuka</div>
-                    <div class="actions">
-                        <div class="btn edit">Edit</div>
-                        <div class="btn delete">Delete</div>
-                    </div>
-                </div>`;
+    renderTask(text, borderColor = '#ccc') {
+        if (typeof text !== 'string' ||
+            text === '') {
+            return '';
+        }
+        const HTML = `<div class="task" style="border-color: ${borderColor}">
+                            <div class="text">${text}</div>
+                            <div class="actions">
+                                <div class="btn edit">Edit</div>
+                                <div class="btn delete">Delete</div>
+                            </div>
+                        </div>`;
+
+        this.listDOM.insertAdjacentHTML('afterbegin', HTML);
     }
 
     render() {
@@ -73,6 +84,21 @@ class Todo {
         HTML += this.generateUpdateForm();
         HTML += this.generateList();
         this.DOM.innerHTML = HTML;
+
+        this.listDOM = this.DOM.querySelector('.list');
+        this.newMessageDOM = document.getElementById('new_text');
+        this.newBorderColorDOM = document.getElementById('new_border_color');
+        this.buttonSaveDOM = document.getElementById('save_button');
+    }
+
+    addEvents() {
+        this.buttonSaveDOM.addEventListener('click', (e) => {
+            e.preventDefault();
+            const message = this.newMessageDOM.value;
+            const color = this.newBorderColorDOM.value;
+
+            this.renderTask(message, color);
+        })
     }
 }
 
