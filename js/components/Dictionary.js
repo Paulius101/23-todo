@@ -2,12 +2,14 @@ class Dictionary {
     constructor(selector) {
         this.selector = selector;
         this.DOM = null;
+        this.listDOM = null;
         this.enWordDOM = null;
         this.ltWordDOM = null;
         this.buttonSaveDOM = null;
         this.newInput = JSON.parse(localStorage.getItem('newInput')) || [];
         this.init();
     }
+
     init() {
         if (!this.isValidSelector()) {
             return false;
@@ -86,13 +88,13 @@ class Dictionary {
 
     renderList() {
         for (const word of this.newInput) {
-            this.renderListItem(word.textEN, word.textLT);
+            this.renderListItem(word.englishText, word.lithuanianText);
         }
     }
 
     renderListItem(textEN, textLT) {
-        if (typeof text !== 'string' ||
-            text === '') {
+        if (typeof textEN !== 'string' ||
+            textEN === '') {
             return '';
         }
         const HTML = `<div class="ivestys_actions">

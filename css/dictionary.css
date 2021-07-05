@@ -16,7 +16,7 @@ body {
 }
 form {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 20px;
   margin: 30px 60px;
@@ -86,18 +86,19 @@ h2 {
 }
 .list {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
+  margin-bottom: 10px;
   /* border: 1px white solid;
   border-radius: 9px; */
 }
 .ivestys_actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   color: white;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
   border: 1px solid white;
   padding: 0px 15px;
   border-radius: 13px;
@@ -119,4 +120,8 @@ h2 {
 }
 .actions:hover > .btn {
   opacity: 1;
+}
+
+.lithuanian {
+  margin-left: 100px;
 }
