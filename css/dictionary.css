@@ -93,7 +93,7 @@ h2 {
   /* border: 1px white solid;
   border-radius: 9px; */
 }
-.ivestys_actions {
+.ivestis {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -117,6 +117,7 @@ h2 {
   color: black;
   font-size: 14px;
   opacity: 0;
+  cursor: pointer;
 }
 .actions:hover > .btn {
   opacity: 1;
