@@ -50,7 +50,7 @@ class Dictionary {
     }
 
     generateInitialForm() {
-        return `<div class="top" id="add_task>
+        return `<div class="top" id="add_task">
             <h1>Dictionary</h1>
             <form>
                 <div class="anglu">
@@ -71,8 +71,8 @@ class Dictionary {
 
     generateUpdatedForm() {
         return `<div class="top hide" id="update_task">
-            <h1 class="hide">Dictionary</h1>
-             <form class="hide">
+            <h1>Dictionary</h1>
+             <form>
             <label for="en-update">English</label>
             <input type="text" id="en-update">
             <label for="lt-update">Lietuviu</label>
@@ -211,7 +211,7 @@ class Dictionary {
             this.updateFormDOM.classList.add('hide')
         })
 
-        this.buttonUpdateDOM.addEventListener('click', e => {
+        this.buttonUpdateDOM.addEventListener('click', (e) => {
             e.preventDefault();
             const textEnglish = this.updateEnWordDOM.value
             const textLithuanian = this.updateLtWordDOM.value;
