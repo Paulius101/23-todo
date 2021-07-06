@@ -44,7 +44,9 @@ form input {
   gap: 10px;
 }
 .mygtukai > #save,
-#reset {
+#reset,
+#update_button,
+#cancel_button {
   padding: 10px 20px;
   background-color: #51e0c0;
   border-radius: 15px;
